@@ -244,7 +244,7 @@ func (r Runner) processLintResults(inCh <-chan lintRes) <-chan lintRes {
 		}
 
 		if issuesBefore != issuesAfter {
-			r.Log.Infof("Issues before processing: %d, after processing: %d", issuesBefore, issuesAfter)
+			r.Log.Infof("Issues before processing %s: %d, after processing: %d", p.Name(), issuesBefore, issuesAfter)
 		}
 		sw.PrintStages()
 	}()
