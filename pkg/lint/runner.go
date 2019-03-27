@@ -301,7 +301,9 @@ func (r *Runner) processIssues(issues []result.Issue, sw *timeutils.Stopwatch) [
 		var err error
 		p := p
 		sw.TrackStage(p.Name(), func() {
+			r.Log.Warnf("Processing with %s: %#v", p.Name(), len(issues))
 			newIssues, err = p.Process(issues)
+			r.Log.Warnf("Processes with %s: %#v", p.Name(), len(newIssues))
 		})
 
 		if err != nil {
